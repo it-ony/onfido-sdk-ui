@@ -34,7 +34,7 @@ type HollowRect = {
   height: number
 }
 
-const ASPECT_RATIOS: Record<DocumentSizes, number> = {
+const DOCUMENT_ASPECT_RATIOS: Record<DocumentSizes, number> = {
   id1Card: 1.586,
   id3Card: 1.417,
   rectangle: 1.57,
@@ -114,7 +114,7 @@ const calculateHollowRect = (
 ): HollowRect => {
   const viewport = getViewport(containerDimensions)
   const size = getDocumentSize(docTypeParams)
-  const { [size]: aspectRatio } = ASPECT_RATIOS
+  const { [size]: aspectRatio } = DOCUMENT_ASPECT_RATIOS
 
   const width = viewport.width * viewport.hollowWidthRatio
   const height = width / aspectRatio
@@ -188,6 +188,40 @@ export type Props = {
   withPlaceholder?: boolean
 } & DocTypeParams
 
+/**
+ * Render a full-screen view with a SVG element
+ * drawing an overlay for the camera view.
+ * The SVG element contains 2 line draws: `inner` and `outer` in reversed direction:
+ *  - M: start point
+ *  - v<length>: draw a vertical line from the current point with <length>,
+ *               <length> < 0 means reversed direction.
+ *  - h<length>: draw a horizontal line from the current point with <length>,
+ *               <length> < 0 means reversed direction.
+ *
+ *       M(0,0)
+ *          ====>====>====>====>====>====>
+ *          ⇑                            ‖
+ *          ‖                            ‖
+ *          ‖                            ‖
+ *          ‖                            ‖
+ *          ‖                            ⇓
+ *          ⇑    <----<----<----<----    ‖
+ *          ‖    |                  ↑    ‖
+ *          ‖    |                  |    ‖
+ *          ‖    |                  |    ‖
+ *          ‖    ↓                  |    ⇓
+ *          ⇑    ---->---->---->---->    ‖
+ *          ‖ (inner                     ‖
+ *          ‖  start                     ‖
+ *          ‖  point)                    ‖
+ *          ‖                            ⇓
+ *          ⇑                            ‖
+ *          ‖                            ‖
+ *          ‖                            ‖
+ *          ‖                            ‖
+ *          ‖                            ⇓
+ *          <====<====<====<====<====<====
+ */
 const DocumentOverlay: FunctionComponent<Props> = ({
   ariaLabel,
   children,

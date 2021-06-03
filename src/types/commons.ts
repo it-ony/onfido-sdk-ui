@@ -25,7 +25,7 @@ export type ExtendedStepConfig =
   | StepConfig
   | { type: typeof STEP_CROSS_DEVICE; options?: never }
 
-export type CaptureMethods = 'document' | 'face'
+export type CaptureMethods = 'document' | 'face' | 'auth'
 
 export type CaptureMethodVariants = 'live' | 'html5'
 
@@ -57,6 +57,7 @@ export type SdkMetadata = {
     browser: string
     browser_version: string
   }
+  take_number?: number
 }
 
 export type CountryData = {
@@ -66,7 +67,6 @@ export type CountryData = {
 }
 
 export type UrlsConfig = {
-  auth_url?: string
   onfido_api_url?: string
   telephony_url?: string
   hosted_sdk_url?: string

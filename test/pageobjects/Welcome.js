@@ -63,7 +63,6 @@ class Welcome extends BasePage {
 
   async verifyIdentityButton(copy) {
     verifyElementCopy(this.primaryBtn(), copy.welcome.next_button)
-    elementCanReceiveFocus(this.primaryBtn(), this.driver)
   }
 
   async verifyFooter() {
@@ -71,6 +70,8 @@ class Welcome extends BasePage {
   }
 
   async continueToNextStep() {
+    //On rare occasions, there are cases when the page hasn't quite loaded, hence the need for the sleep
+    this.driver.sleep(100)
     this.primaryBtn().click()
   }
 

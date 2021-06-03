@@ -1,4 +1,4 @@
-import { hmac256 } from './blob'
+import { hmac256, mimeType } from './blob'
 import { parseJwt } from './jwt'
 import { performHttpReq, HttpRequestParams } from './http'
 import { forEach } from './object'
@@ -127,7 +127,7 @@ export const uploadDocumentVideoMedia = (
   )
 }
 
-export const uploadLivePhoto = (
+export const uploadFacePhoto = (
   { sdkMetadata, ...data }: UploadLivePhotoPayload,
   url: string | undefined,
   token: string | undefined,
@@ -181,7 +181,7 @@ export const sendMultiframeSelfie = (
       sendEvent('Snapshot upload completed')
       sendEvent('Starting live photo upload')
       const snapshot_uuids = JSON.stringify([res.uuid])
-      uploadLivePhoto(
+      uploadFacePhoto(
         { file: { blob, filename }, sdkMetadata, snapshot_uuids },
         url,
         token,
@@ -260,7 +260,11 @@ export const uploadBinaryMedia = (
     try {
       const tokenData = parseJwt(token)
       const formData = new FormData()
-      formData.append('media', file, filename)
+      formData.append(
+        'media',
+        file,
+        filename || `document_capture.${mimeType(file)}`
+      )
       formData.append('sdk_metadata', JSON.stringify(sdkMetadata))
 
       if (!includeHmacAuth) {

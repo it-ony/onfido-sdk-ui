@@ -2,7 +2,127 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `6.6.0` -> `[next-version]`
+## `6.9.0` -> [latest-version]
+
+### Added strings
+
+- `doc_capture.detail.folded_doc_front`
+- `doc_capture.header_folded_doc_front`
+- `doc_capture.prompt.button_card`
+- `doc_capture.prompt.button_paper`
+- `doc_capture.prompt.title_id`
+- `doc_capture.prompt.title_license`
+- `doc_video_capture.button_primary_fallback`
+- `doc_video_capture.button_primary_fallback_end`
+- `doc_video_capture.detail_step2`
+- `doc_video_capture.header`
+- `doc_video_capture.header_paper_doc_step2`
+- `doc_video_capture.header_passport`
+- `doc_video_capture.header_passport_progress`
+- `doc_video_capture.header_step1`
+- `doc_video_capture.header_step2`
+- `doc_video_capture.prompt.detail_timeout`
+- `doc_video_capture.stepper`
+- `doc_video_capture.success_accessibility`
+- `doc_video_confirmation.button_secondary`
+- `doc_video_confirmation.title`
+- `video_capture.button_primary_start`
+- `video_capture.prompt.header_timeout`
+- `video_confirmation.body`
+- `video_confirmation.button_primary`
+- `video_confirmation.button_secondary`
+- `welcome.doc_video_subtitle`
+- `welcome.list_header_doc_video`
+- `welcome.list_item_doc`
+- `welcome.list_item_doc_video_timeout`
+- `welcome.list_item_selfie`
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+### Changed strings
+
+- `video_capture.button_primary_finish`
+- `video_capture.button_primary_next`
+- `video_capture.header.challenge_turn_left`
+- `video_capture.header.challenge_turn_right`
+- `welcome.title`
+
+### Removed strings
+
+- `video_capture.body_next`
+- `video_capture.body_stop`
+- `video_capture.button_stop_accessibility`
+- `video_capture.header.challenge_turn_template`
+
+## `6.8.0` -> `6.9.0`
+
+### Added strings
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has been added:
+
+- `auth_accessibility.back_button`
+- `auth_cam_encrypt.loader`
+- `auth_cam_start.loader`
+- `auth_capture_start.body`
+- `auth_capture_start.button_primary`
+- `auth_capture_start.title`
+- `auth_capture_start.feedback.center_face`
+- `auth_capture_start.feedback.conditions_too_bright`
+- `auth_capture_start.feedback.conditions_too_dark`
+- `auth_capture_start.feedback.head_not_upright`
+- `auth_capture_start.feedback.neutral_expression`
+- `auth_capture_start.feedback.not_looking_straight`
+- `auth_capture_start.feedback.remove_sunglasses`
+- `auth_capture_start.feedback.steady_count_1`
+- `auth_capture_start.feedback.steady_count_2`
+- `auth_capture_start.feedback.steady_count_3`
+- `auth_capture.feedback.center_face`
+- `auth_capture.feedback.even_lighting`
+- `auth_capture.feedback.eye_level`
+- `auth_capture.feedback.face_not_found`
+- `auth_capture.feedback.head_not_upright`
+- `auth_capture.feedback.move_back`
+- `auth_capture.feedback.move_close`
+- `auth_capture.feedback.move_closer`
+- `auth_capture.feedback.not_looking_straight`
+- `auth_capture.feedback.steady`
+- `auth_error.cam_encryption.body`
+- `auth_error.cam_encryption.button_primary`
+- `auth_error.cam_encryption.button_primary_firefox`
+- `auth_error.cam_encryption.subtitle`
+- `auth_error.cam_encryption.table_header_1`
+- `auth_error.cam_encryption.table_header_2`
+- `auth_error.cam_encryption.table_row_1_cell_1`
+- `auth_error.cam_encryption.table_row_1_cell_1_firefox`
+- `auth_error.cam_encryption.table_row_1_cell_2`
+- `auth_error.cam_encryption.table_row_1_cell_2_firefox`
+- `auth_error.cam_encryption.table_row_2_cell_1`
+- `auth_error.cam_encryption.table_row_2_cell_2`
+- `auth_error.cam_encryption.table_row_3_cell_1`
+- `auth_error.cam_encryption.table_row_3_cell_2`
+- `auth_error.cam_encryption.title`
+- `auth_full_screen.body`
+- `auth_full_screen.button_primary`
+- `auth_full_screen.title`
+- `auth_permission_denied.body_cam`
+- `auth_permission_denied.button_primary_cam`
+- `auth_permission.body_cam`
+- `auth_permission.button_primary_cam`
+- `auth_permission.title_cam`
+- `auth_progress.loader`
+- `auth_retry.body_blur`
+- `auth_retry.body_neutral_expression`
+- `auth_retry.body_too_bright`
+- `auth_retry.button_primary`
+- `auth_retry.subtitle`
+- `auth_retry.title`
+- `auth_upload_pass.body`
+
+### Changed strings
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+## `6.6.0` -> `6.8.0`
 
 ### Added strings
 
@@ -17,6 +137,8 @@ The **English** copy for the following string(s) has been added:
 ## `6.5.0` -> `6.6.0`
 
 ### Added strings
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
 
 The **English** copy for the following string(s) has been added:
 
