@@ -12,51 +12,80 @@ import { DefaultContent, DocVideoContent } from './Content'
 import style from './style.scss'
 
 import type { StepComponentBaseProps } from '~types/routers'
+import type { StepTypes } from '~types/steps'
+
+const CAPTURE_STEP_TYPES: Set<StepTypes> = new Set([
+  'document',
+  'poa',
+  'face',
+  'auth',
+])
 
 type WelcomeActionsProps = {
-  nextButton?: string
+  customNextButtonLabel?: string
   nextStep: () => void
 }
 
 const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
-  nextButton,
+  customNextButtonLabel,
   nextStep,
 }) => {
   const { translate } = useLocales()
-  const welcomeNextButton = nextButton || translate('welcome.next_button')
+
+  const buttonLabel = customNextButtonLabel
+    ? customNextButtonLabel
+    : translate('welcome.next_button')
 
   return (
-    <Button
-      variant="primary"
-      className={classNames(theme['button-centered'], theme['button-lg'])}
-      onClick={nextStep}
-      data-onfido-qa="welcome-next-btn"
-    >
-      {welcomeNextButton}
-    </Button>
+    <div className={theme.contentMargin}>
+      <Button
+        variant="primary"
+        className={classNames(theme['button-centered'], theme['button-lg'])}
+        onClick={nextStep}
+        data-onfido-qa="welcome-next-btn"
+      >
+        {buttonLabel}
+      </Button>
+    </div>
   )
 }
 
-const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
+const Welcome: FunctionComponent<StepComponentBaseProps> = ({
+  steps,
+  nextStep,
+}) => {
   const [, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
 
   const welcomeStep = findStep('welcome')
-  const { title, descriptions, nextButton } = welcomeStep?.options || {}
+  const {
+    title: customTitle,
+    descriptions: customDescriptions,
+    nextButton: customNextButtonLabel,
+  } = welcomeStep?.options || {}
 
   const documentStep = findStep('document')
   const forDocVideo = documentStep?.options?.requestedVariant === 'video'
 
-  const actions = <WelcomeActions {...{ nextButton, nextStep }} />
-  const welcomeTitle = title || translate('welcome.title')
+  const actions = <WelcomeActions {...{ customNextButtonLabel, nextStep }} />
+  const welcomeTitle = customTitle || translate('welcome.title')
+  const welcomeSubTitle = !customDescriptions
+    ? translate('welcome.subtitle')
+    : ''
+  const captureSteps = steps
+    .filter((step) => CAPTURE_STEP_TYPES.has(step.type))
+    .map((stepConfig) => stepConfig.type)
 
   return (
     <ScreenLayout actions={actions} className={style.container}>
-      <PageTitle title={welcomeTitle} />
+      <PageTitle title={welcomeTitle} subTitle={welcomeSubTitle} />
       {forDocVideo ? (
-        <DocVideoContent />
+        <DocVideoContent captureSteps={captureSteps} />
       ) : (
-        <DefaultContent {...{ descriptions, translate }} />
+        <DefaultContent
+          captureSteps={captureSteps}
+          descriptions={customDescriptions}
+        />
       )}
     </ScreenLayout>
   )

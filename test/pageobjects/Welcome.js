@@ -1,14 +1,14 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
-import {
-  testFocusManagement,
-  elementCanReceiveFocus,
-} from '../utils/accessibility'
+import { testFocusManagement } from '../utils/accessibility'
 import { Key } from 'selenium-webdriver'
 
 class Welcome extends BasePage {
   async subtitle() {
-    return this.$('.onfido-sdk-ui-Welcome-subtitle')
+    return this.$('.onfido-sdk-ui-PageTitle-subTitle')
+  }
+  async customDescriptions() {
+    return this.$('.onfido-sdk-ui-Welcome-customDescriptions')
   }
   async instructions() {
     return this.$('.onfido-sdk-ui-Welcome-instructions')
@@ -36,18 +36,37 @@ class Welcome extends BasePage {
     verifyElementCopy(this.title(), copy.welcome.title)
   }
 
+  async verifyCustomTitle() {
+    verifyElementCopy(this.title(), 'Open your new bank account')
+  }
+
   async verifyFocusManagement() {
     testFocusManagement(this.title(), this.driver)
   }
 
   async verifySubtitle(copy) {
-    verifyElementCopy(this.subtitle(), copy.welcome.doc_video_subtitle)
+    verifyElementCopy(this.subtitle(), copy.welcome.subtitle)
   }
 
-  async verifyInstructions(copy) {
+  async verifyDefaultInstructions(copy) {
     verifyElementCopy(
       this.instructions(),
-      `${copy.welcome.list_header_doc_video}\n${copy.welcome.list_item_doc}\n${copy.welcome.list_item_selfie}`
+      [
+        copy.welcome.list_header_webcam,
+        copy.welcome.list_item_doc,
+        copy.welcome.list_item_selfie,
+      ].join('\n')
+    )
+  }
+
+  async verifyDocVideoInstructions(copy) {
+    verifyElementCopy(
+      this.instructions(),
+      [
+        copy.welcome.list_header_doc_video,
+        copy.welcome.list_item_doc,
+        copy.welcome.list_item_selfie,
+      ].join('\n')
     )
   }
 
@@ -61,8 +80,19 @@ class Welcome extends BasePage {
     )
   }
 
-  async verifyIdentityButton(copy) {
+  async verifyCustomDescriptions() {
+    verifyElementCopy(
+      this.customDescriptions(),
+      `To open a bank account, we will need to verify your identity.\nIt will only take a couple of minutes.`
+    )
+  }
+
+  async verifyPrimaryButton(copy) {
     verifyElementCopy(this.primaryBtn(), copy.welcome.next_button)
+  }
+
+  async verifyCustomPrimaryButton() {
+    verifyElementCopy(this.primaryBtn(), 'Verify Identity')
   }
 
   async verifyFooter() {

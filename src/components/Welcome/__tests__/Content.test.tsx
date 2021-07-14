@@ -12,15 +12,9 @@ mockedTranslate.mockImplementation((str) => {
   return str
 })
 
-const assertDefaultContent = (wrapper: ReactWrapper) => {
-  const items = wrapper.find('.customDescriptions > p')
-  expect(items.at(0).text()).toEqual('welcome.description_p_1')
-  expect(items.at(1).text()).toEqual('welcome.description_p_2')
-}
-
-const assertDocVideoContent = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.caption').text()).toEqual(
-    'welcome.list_header_doc_video'
+const assertContent = (wrapper: ReactWrapper, forDocVideo: boolean) => {
+  expect(wrapper.find('.instructions > span').text()).toEqual(
+    forDocVideo ? 'welcome.list_header_doc_video' : 'welcome.list_header_webcam'
   )
   const items = wrapper.find('.instructions > ol li')
   expect(items.at(0).text()).toEqual('welcome.list_item_doc')
@@ -32,18 +26,19 @@ describe('Welcome', () => {
     it('renders correct elements', () => {
       const wrapper = mount(
         <MockedLocalised>
-          <DefaultContent />
+          <DefaultContent captureSteps={['document', 'face']} />
         </MockedLocalised>
       )
 
       expect(wrapper.exists()).toBeTruthy()
-      assertDefaultContent(wrapper)
+      assertContent(wrapper, false)
     })
 
     it('renders correct elements with custom descriptions', () => {
       const wrapper = mount(
         <MockedLocalised>
           <DefaultContent
+            captureSteps={[]}
             descriptions={[
               'Fake description 1',
               'Fake description 2',
@@ -66,16 +61,13 @@ describe('Welcome', () => {
     it('renders correct elements', () => {
       const wrapper = mount(
         <MockedLocalised>
-          <DocVideoContent />
+          <DocVideoContent captureSteps={['welcome', 'document', 'face']} />
         </MockedLocalised>
       )
 
       expect(wrapper.exists()).toBeTruthy()
 
-      expect(wrapper.find('.subtitle').text()).toEqual(
-        'welcome.doc_video_subtitle'
-      )
-      assertDocVideoContent(wrapper)
+      assertContent(wrapper, true)
       expect(wrapper.find('.recordingLimit').text()).toEqual('timeout: 30')
     })
   })

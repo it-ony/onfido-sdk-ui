@@ -8,31 +8,67 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## Added
+### Added
 
+- UI: Accessibility - Add ARIA role `img` and an ARIA label for the generated cross device secure link QR code image
 - Internal: Resolved inaccurate reporting on test automation failures.
 - Internal: Added note about lockfileVersion and npm version requirement for SDK contributors in CONTRIBUTING.md documentation.
 - Public: Improvements in video capture steps.
 
-## Fixed
+### Changed
 
-- Internal: Upgrade Preact from version `10.5.4` to `10.5.13` in order to resolve an unhandled exception on reinitialising the SDK after closing the SDK modal for some integrations when using Modal mode.
+- UI: Accessibility - Add ARIA role `button` to "Resend link" and "Cancel" links on Cross Device flow SMS Sent, Mobile Connected screens.
+- Internal: Remove `image_quality` breakdowns from `sdk_warnings` response because the field will be soon deprecated.
+- Internal: Moved `geckodriver` from `dependencies` to `devDependencies`.
+- Internal: Added ability to run tests without the use of the mock server for the UI tests.
 
-## [6.9.0] - 2021-05-24
+### Fixed
 
-## Added
+## [6.10.2] - 2021-07-08
 
-- Public: Added Authentication module as a beta feature
-- Internal: Added support for testing across multiple browsers.
-- Internal: Added polyfills for `Object.entries` and `Object.fromEntries` for IE11.
+### Fixed
+
+- UI: Fixed Camera Permissions Primer screen rendering issue on Safari 14.1 (desktop) without changing existing SDK layout structure.
+
+## [6.10.1] - 2021-07-05
+
+### Changed
+
+- Reduce resolution to VGA if browser does not support recording videos in WebM format (e.g. Safari 14.x that only supports MP4 format) to avoid large video files being created.
+- UI: Fixed Camera Permissions Primer screen rendering issue on Safari 14.1 (desktop) by using ScreenLayout wrapper component.
+
+## [6.10.0] - 2021-06-22
+
+### Added
+
+- Internal: Added note about lockfileVersion and npm version requirement for SDK contributors in CONTRIBUTING.md documentation.
+- Public: Added support for Italian `it_IT` and Portuguese `pt_PT`.
+- Internal: Added support for visual regression testing using Percy.
+- Internal: Resolved inaccurate reporting on test automation failures.
+- Internal: Added ability to execute/ignore tests via the use of tags/regex.
 
 ### Changed
 
 - UI: Update Face Liveness Video Challenge screen UI
+- UI: Updated default Welcome screen UI
+- Public: Move documentation for SDK UI Customizations and Premium Enterprise Features into separate Markdown files to reduce README size
+- Public: Updated SDK copy for English (en_US), Spanish (es_ES), French (fr_FR) and German (de_DE). For details on what keys/copy have changed please refer to the MIGRATION.md documentation.
 - Internal: Upgrade sass (Dart Sass) from `1.26.9` to `1.33.0`
 - Internal: Upgrade stylelint from `13.6.1` to `13.13.1` as well as stylelint-config-sass-guidelines from `7.0.0` to `8.0.0` and stylelint-scss from `3.18.0` to `3.19.0`
 
 ### Fixed
+
+- Internal: Upgrade Preact from version `10.5.4` to `10.5.13` in order to resolve an unhandled exception on reinitialising the SDK after closing the SDK modal for some integrations when using Modal mode.
+- Public: Fix Country Selection screen not displaying when SDK is initialised with boolean `documentTypes` configuration.
+- Public: Fixed issue where `onComplete` callback was fired without the necessary data for the `face` step. Added exception to `onError` callback to inform that `onComplete` could not be fired due to missing data.
+
+## [6.9.0] - 2021-05-24
+
+### Added
+
+- Public: Added Authentication module as a beta feature
+- Internal: Added support for testing across multiple browsers.
+- Internal: Added polyfills for `Object.entries` and `Object.fromEntries` for IE11.
 
 ### Changed
 
@@ -53,8 +89,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added user consent content reload screen
 - Public: When `photoCaptureFallback` option is disabled in the face step, the requested variant is video and browser does not support MediaRecorder, attempt to redirect to the cross-device flow or display the unsupported browser error.
 - Internal: Refactor for better reusability of video capture components.
-- Internal: Added support for testing across multiple browsers.
-- Internal: Added support for visual regression testing using Percy.
 
 ### Changed
 
@@ -999,7 +1033,10 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.9.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.2...development
+[6.10.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.1...6.10.2
+[6.10.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.0...6.10.1
+[6.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.9.0...6.10.0
 [6.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.8.0...6.9.0
 [6.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.2...6.8.0
 [6.7.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.1...6.7.2

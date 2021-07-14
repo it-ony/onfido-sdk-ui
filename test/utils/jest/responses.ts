@@ -1,7 +1,7 @@
 import {
-  ApiParsedError,
-  DocumentImageResponse,
   CreateV4DocumentResponse,
+  DocumentImageResponse,
+  ParsedError,
 } from '~types/api'
 
 /**
@@ -24,27 +24,6 @@ export const fakePassportImageResponse: DocumentImageResponse = {
     detect_glare: { valid: true },
     detect_cutoff: { valid: true },
     detect_blur: { valid: true },
-    image_quality: {
-      quality: 'good',
-      breakdown: {
-        blur: {
-          has_blur: false,
-          max: 1,
-          min: 0,
-          score: 0.91948390007019,
-          threshold: 0.2012,
-        },
-        cutoff: {
-          has_cutoff: false,
-          max: 1,
-          min: 0,
-          score: 0.0546875,
-          threshold: 0.015,
-        },
-        has_document: true,
-      },
-      image_quality_uuid: 'ce43a552-c2af-4634-9939-ab7a2def39a7',
-    },
   },
   applicant_id: '<to-be-replaced>',
   href: '/v3/documents/a2910652-2ed9-42d9-82b5-0e0578ab57fb',
@@ -62,27 +41,6 @@ export const fakeDrivingLicenceFrontResponse: DocumentImageResponse = {
   issuing_country: 'USA',
   sdk_warnings: {
     detect_glare: { valid: true },
-    image_quality: {
-      quality: 'good',
-      breakdown: {
-        blur: {
-          has_blur: false,
-          max: 1,
-          min: 0,
-          score: 0.979493498802185,
-          threshold: 0.2012,
-        },
-        cutoff: {
-          has_cutoff: false,
-          max: 1,
-          min: 0,
-          score: 0.0234375,
-          threshold: 0.015,
-        },
-        has_document: true,
-      },
-      image_quality_uuid: '8a73d4a8-9e05-4c95-a339-b539d39194ac',
-    },
   },
   applicant_id: '<to-be-replaced>',
   href: '/v3/documents/35e2f9cb-b79a-460a-ae86-297af0dace7b',
@@ -100,34 +58,13 @@ export const fakeDrivingLicenceBackResponse: DocumentImageResponse = {
   issuing_country: 'USA',
   sdk_warnings: {
     detect_glare: { valid: true },
-    image_quality: {
-      quality: 'good',
-      breakdown: {
-        blur: {
-          has_blur: false,
-          max: 1,
-          min: 0,
-          score: 0.575742542743683,
-          threshold: 0.2012,
-        },
-        cutoff: {
-          has_cutoff: false,
-          max: 1,
-          min: 0,
-          score: 0.0375,
-          threshold: 0.015,
-        },
-        has_document: true,
-      },
-      image_quality_uuid: '295f666f-f62c-4154-bb05-8ab186dcce9d',
-    },
   },
   applicant_id: '<to-be-replaced>',
   href: '/v3/documents/8bf3b39b-2a0e-4755-bb40-72da002d259d',
   download_href: '/v3/documents/8bf3b39b-2a0e-4755-bb40-72da002d259d/download',
 }
 
-export const fakeNoDocumentError: ApiParsedError = {
+export const fakeNoDocumentError: ParsedError = {
   response: {
     error: {
       type: 'validation_error',
@@ -138,7 +75,7 @@ export const fakeNoDocumentError: ApiParsedError = {
   status: 422,
 }
 
-export const fakeUnknownError: ApiParsedError = {
+export const fakeUnknownError: ParsedError = {
   response: {
     error: {
       type: 'unknown',
@@ -174,7 +111,7 @@ export const fakeCreateV4DocumentResponse: CreateV4DocumentResponse = {
   document_type: 'IDENTITY_DOCUMENT',
 }
 
-export const fakeAccessDeniedError: ApiParsedError = {
+export const fakeAccessDeniedError: ParsedError = {
   response: {
     error: {
       type: 'ACCESS_DENIED',

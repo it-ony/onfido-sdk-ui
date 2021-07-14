@@ -24,11 +24,13 @@ export type QueryParams = {
   forceCrossDevice?: StringifiedBoolean
   hideOnfidoLogo?: StringifiedBoolean
   language?: 'customTranslations' | SupportedLanguages
+  customWelcomeScreenCopy?: StringifiedBoolean
   link_id?: string
   docVideo?: StringifiedBoolean
   faceVideo?: StringifiedBoolean
   multiDocWithInvalidPresetCountry?: StringifiedBoolean
   multiDocWithPresetCountry?: StringifiedBoolean
+  multiDocWithBooleanValues?: StringifiedBoolean
   noCompleteStep?: StringifiedBoolean
   oneDoc?: DocumentTypes
   oneDocWithCountrySelection?: StringifiedBoolean
@@ -134,6 +136,13 @@ const getPreselectedDocumentTypes = (): Partial<
     }
   }
 
+  if (queryParamToValueString.multiDocWithBooleanValues === 'true') {
+    return {
+      driving_licence: true,
+      national_identity_card: true,
+    }
+  }
+
   return {}
 }
 
@@ -152,7 +161,23 @@ export const getInitSdkOptions = (): SdkOptions => {
       ? SAMPLE_LOCALE
       : queryParamToValueString.language
 
-  const steps: Array<StepConfig> = [{ type: 'welcome' }]
+  const steps: Array<StepConfig> = []
+
+  if (queryParamToValueString.customWelcomeScreenCopy === 'true') {
+    steps.push({
+      type: 'welcome',
+      options: {
+        title: 'Open your new bank account',
+        descriptions: [
+          'To open a bank account, we will need to verify your identity.',
+          'It will only take a couple of minutes.',
+        ],
+        nextButton: 'Verify Identity',
+      },
+    })
+  } else {
+    steps.push({ type: 'welcome' })
+  }
 
   if (queryParamToValueString.showAuth === 'true') {
     steps.push({ type: 'auth', options: { retries: 10 } })
@@ -500,7 +525,7 @@ export const createCheckIfNeeded = (
       // faceVideo ? 'facial_similarity_video' : 'facial_similarity_photo',
     ],
     document_ids: documentIds,
-    api_version: docVideo ? 'v4' : 'v3',
+    // api_version: docVideo ? 'v4' : 'v3',
   }
 
   request.send(JSON.stringify(body))

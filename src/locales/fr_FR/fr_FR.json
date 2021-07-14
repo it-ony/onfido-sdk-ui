@@ -96,7 +96,7 @@
         "button_primary": "Envoyer le document",
         "search": {
             "accessibility": "Choisissez le pays",
-            "input_placeholder": "ex : États-Unis",
+            "input_placeholder": "ex : France",
             "label": "Chercher un pays"
         },
         "title": "Sélectionnez votre pays"
@@ -108,8 +108,8 @@
         "list_item_doc_one": "Document envoyé",
         "list_item_selfie": "Selfie envoyé",
         "list_item_video": "Vidéo envoyée",
-        "subtitle": "Nous sommes maintenant prêts à vérifier votre identité",
-        "title": "Merci, c’est tout ce dont nous avons besoin"
+        "subtitle": "Voici ce que vous avez téléversé :",
+        "title": "Dernière étape"
     },
     "cross_device_error_desktop": {
         "subtitle": "Le lien ne fonctionne que sur les appareils mobiles",
@@ -151,7 +151,7 @@
         "prompt": {
             "button_card": "Carte plastique",
             "button_paper": "Document papier",
-            "title_id": "Quelle type de carte d'identité avez-vous ?",
+            "title_id": "Quelle type de carte d’identité avez-vous ?",
             "title_license": "Quel type de permis avez-vous ?"
         }
     },
@@ -178,7 +178,7 @@
         "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
         "button_close": "Fermer",
         "button_primary_redo": "Recommencer",
-        "button_primary_upload": "Confirmer",
+        "button_primary_upload": "Envoyer",
         "button_primary_upload_anyway": "Envoyer quand même",
         "button_secondary_redo": "Recommencer",
         "button_zoom": "Agrandir l’image",
@@ -207,7 +207,7 @@
         "list_accessibility": "Documents que vous pouvez utiliser pour vérifier votre identité",
         "subtitle": "Il doit s’agir d’une pièce d’identité officielle avec photo",
         "subtitle_poa": "These are the documents most likely to show your current home address",
-        "title": "Sélectionner un document",
+        "title": "Sélectionnez un document",
         "title_poa": "Select a %{country} document"
     },
     "doc_submit": {
@@ -232,20 +232,20 @@
         "button_primary_fallback_end": "Terminer l’enregistrement",
         "detail_step2": "Gardez le document visible à tout moment",
         "header": "En tenant votre document, gardez son recto dans le cadre",
-        "header_paper_doc_step2": "Tournez lentement votre pièce d'identité pour montrer les pages extérieures",
+        "header_paper_doc_step2": "Tournez lentement votre pièce d’identité pour montrer les pages extérieures",
         "header_passport": "En tenant votre passeport, gardez la page de la photo dans le cadre",
         "header_passport_progress": "Restez immobile",
         "header_step1": "Patientez",
-        "header_step2": "Tournez lentement votre pièce d'identité pour montrer le verso",
+        "header_step2": "Tournez lentement votre pièce d’identité pour montrer le verso",
         "prompt": {
-            "detail_timeout": "L'enregistrement vidéo est limité à <timeout> <\/timeout> secondes. <fallback> Recommencez <\/fallback>"
+            "detail_timeout": "L’enregistrement vidéo est limité à <timeout> <\/timeout> secondes. <fallback> Recommencez <\/fallback>"
         },
         "stepper": "Étape <step> <\/step> sur <total> <\/total>",
         "success_accessibility": "Succès"
     },
     "doc_video_confirmation": {
         "button_secondary": "Aperçu de la vidéo",
-        "title": "Vérifiez votre vidéo"
+        "title": "Veuillez vérifier votre vidéo"
     },
     "error_unsupported_browser": {
         "subtitle_android": "Redémarrez le processus sur la dernière version de Google Chrome",
@@ -281,7 +281,7 @@
                 "message": "Plusieurs visages détectés"
             },
             "no_face": {
-                "instruction": "Votre visage doit être visible sur le selfie",
+                "instruction": "Assurez-vous que votre visage est visible",
                 "message": "Aucun visage détecté"
             },
             "request_error": {
@@ -312,7 +312,7 @@
         "info_qr_how": "Comment scanner un QR code",
         "info_qr_how_list_item_camera": "Pointez l’appareil photo de votre mobile sur le QR code",
         "info_qr_how_list_item_download": "Si cela ne fonctionne pas, téléchargez un scanner de QR code sur Google Play ou l’App Store",
-        "link_divider": "ou",
+        "link_divider": "ou choisissez l’une de ces alternatives",
         "link_qr": "Scanner le QR code",
         "link_sms": "Obtenir le lien par SMS",
         "link_url": "Copier le lien",
@@ -320,18 +320,10 @@
         "number_field_input_placeholder": "Entrez votre numéro de mobile",
         "number_field_label": "Entrez votre numéro de mobile",
         "subtitle_qr": "Scannez le QR code avec votre mobile",
-        "subtitle_sms": "Envoyez ce lien unique vers votre mobile",
+        "subtitle_sms": "Ouvrez le lien sur votre mobile",
         "subtitle_url": "Ouvrez le lien sur votre mobile",
         "title": "Obtenez votre lien sécurisé",
         "url_field_label": "Copier le lien sur votre mobile"
-    },
-    "linked_computer": {
-        "button_primary": "Continuer",
-        "info": "Veillez à ce que",
-        "list_item_desktop_open": "2. La fenêtre de votre bureau reste ouverte",
-        "list_item_sent_by_you": "1. Ce lien a été envoyé par vos soins",
-        "subtitle": "Poursuivre la vérification",
-        "title": "Lié à votre ordinateur"
     },
     "mobilePhrases": {
         "photo_upload": {
@@ -358,8 +350,8 @@
         }
     },
     "outro": {
-        "body": "Merci",
-        "title": "Vérification terminée"
+        "body": "C’est tout ce dont nous avons besoin pour commencer à vérifier votre identité",
+        "title": "Merci"
     },
     "permission_recovery": {
         "button_primary": "Actualiser",
@@ -393,7 +385,7 @@
         "title_selfie": "Selfie"
     },
     "poa_guidance": {
-        "button_primary": "Continuer",
+        "button_primary": "Continue",
         "instructions": {
             "address": "Current address",
             "full_name": "Full name",
@@ -428,13 +420,13 @@
                 "title": "L’appareil photo ne fonctionne pas"
             },
             "timeout": {
-                "detail": "Rappelez-vous d’appuyer sur stop lorsque vous avez terminé. <fallback>Refaire la vidéo<\/fallback>",
+                "detail": "N’oubliez pas d’appuyer sur le bouton lorsque vous avez terminé. <fallback>Refaire la vidéo<\/fallback>",
                 "title": "Le temps est écoulé"
             }
         },
         "button_accessibility": "Prendre une photo",
         "frame_accessibility": "Vue de la caméra",
-        "title": "Prendre un selfie"
+        "title": "Gardez le visage dans le cercle"
     },
     "selfie_confirmation": {
         "image_accessibility": "Photo de votre visage",
@@ -454,8 +446,8 @@
         "info_link_expire": "Votre lien expirera dans une heure",
         "info_link_window": "Gardez cette fenêtre ouverte lorsque vous utilisez votre mobile",
         "link": "Renvoyer le lien",
-        "subtitle": "Nous avons envoyé un lien sécurisé à %{number}",
-        "subtitle_minutes": "Cela peut prendre quelques minutes pour arriver",
+        "subtitle": "Nous vous avons envoyé un lien sécurisé au numéro suivant : %{number}",
+        "subtitle_minutes": "Le délai de réception peut varier entre les différents opérateurs",
         "title": "Vérifiez votre mobile"
     },
     "switch_phone": {
@@ -464,11 +456,11 @@
         "info_link_refresh": "N’actualisez pas cette page",
         "info_link_window": "Gardez cette fenêtre ouverte lorsque vous utilisez votre mobile",
         "link": "Annuler",
-        "subtitle": "Une fois que vous aurez terminé, nous vous emmènerons à l’étape suivante",
+        "subtitle": "Une fois terminé, vous passerez à l’étape suivante",
         "title": "Connecté à votre mobile"
     },
     "upload_guide": {
-        "button_primary": "Envoyer la photo",
+        "button_primary": "Envoyer une photo",
         "image_detail_blur_alt": "Exemple de document flou",
         "image_detail_blur_label": "Tous les détails doivent être clairs — rien ne doit être flou",
         "image_detail_cutoff_label": "Afficher tous les détails — y compris les deux dernières lignes",
@@ -493,11 +485,11 @@
         }
     },
     "video_capture": {
-        "body": "Positionnez votre visage dans le cercle",
-        "body_record": "Appuyez sur enregistrer et suivez les instructions",
-        "button_primary_start": "Démarrer l'enregistrement",
+        "body": "Gardez le visage dans le cercle",
+        "body_record": "Appuyez sur le bouton lorsque vous êtes prêt(e)",
         "button_primary_finish": "Terminer l’enregistrement",
         "button_primary_next": "Étape suivante",
+        "button_primary_start": "Démarrer l’enregistrement",
         "button_record_accessibility": "Démarrer l’enregistrement",
         "frame_accessibility": "Vue de la caméra",
         "header": {
@@ -508,8 +500,7 @@
         },
         "prompt": {
             "header_timeout": "Le temps est écoulé"
-        },
-        "status": "En cours d’enregistrement"
+        }
     },
     "video_confirmation": {
         "body": "Votre vidéo a été enregistrée",
@@ -519,21 +510,21 @@
         "video_accessibility": "Rejouer la vidéo"
     },
     "video_intro": {
-        "button_primary": "Continuer",
+        "button_primary": "Commencer l’enregistrement",
         "list_accessibility": "Actions pour enregistrer une vidéo de votre visage",
-        "list_item_actions": "Nous allons vous demander de vous filmer en train d’exécuter <strong>2 actions simples<\/strong>",
-        "list_item_speak": "L’une d’entre elles consistera à <strong>parler à haute<\/strong> voix",
-        "title": "Assurons-nous que personne ne se fait passer pour vous"
+        "list_item_actions": "Vous avez 25 secondes pour terminer",
+        "list_item_speak": "Suivez les instructions pour bouger ou parler",
+        "title": "Enregistrez une vidéo de votre visage"
     },
     "welcome": {
-        "description_p_1": "Pour ouvrir un compte bancaire, nous devons vérifier votre identité.",
-        "description_p_2": "Cela ne prendra que quelques instants.",
-        "doc_video_subtitle": "Cela ne prendra que quelques minutes",
         "list_header_doc_video": "Utilisez votre mobile pour enregistrer :",
-        "list_item_doc": "votre pièce d'identité",
-        "list_item_doc_video_timeout": "L'enregistrement est limité à <timeout><\/timeout> secondes",
+        "list_header_webcam": "Utilisez votre webcam ou mobile pour prendre en photo :",
+        "list_item_doc": "votre document d’identité",
+        "list_item_doc_video_timeout": "L’enregistrement est limité à <timeout><\/timeout> secondes",
+        "list_item_poa": "your proof of address",
         "list_item_selfie": "votre visage",
-        "next_button": "Vérifiez votre identité",
-        "title": "Vérification d'identité"
+        "next_button": "Sélectionner un document",
+        "subtitle": "Cela ne prendra que quelques minutes",
+        "title": "Vérification d’identité"
     }
 }

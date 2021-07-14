@@ -2,7 +2,7 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `6.9.0` -> [latest-version]
+## `6.9.0` -> `6.10.0`
 
 ### Added strings
 
@@ -28,12 +28,15 @@ The guides below are provided to ease the transition of existing applications us
 - `doc_video_confirmation.title`
 - `video_capture.button_primary_start`
 - `video_capture.prompt.header_timeout`
+- `video_capture.header.challenge_turn_forward`
 - `video_confirmation.body`
 - `video_confirmation.button_primary`
 - `video_confirmation.button_secondary`
-- `welcome.doc_video_subtitle`
+- `welcome.subtitle`
 - `welcome.list_header_doc_video`
+- `welcome.list_header_webcam`
 - `welcome.list_item_doc`
+- `welcome.list_item_poa`
 - `welcome.list_item_doc_video_timeout`
 - `welcome.list_item_selfie`
 
@@ -46,6 +49,44 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `video_capture.header.challenge_turn_left`
 - `video_capture.header.challenge_turn_right`
 - `welcome.title`
+- `welcome.next_button`
+- `cross_device_checklist.list_item_doc_multiple`
+- `cross_device_checklist.list_item_doc_one`
+- `cross_device_checklist.list_item_selfie`
+- `cross_device_checklist.list_item_video`
+- `cross_device_checklist.subtitle`
+- `cross_device_checklist.title`
+- `doc_confirmation.alert.no_doc_detail`
+- `doc_confirmation.alert.no_doc_title`
+- `doc_confirmation.body_id`
+- `doc_confirmation.body_license`
+- `doc_confirmation.body_passport`
+- `doc_confirmation.body_permit`
+- `doc_confirmation.button_primary_upload`
+- `doc_select.button_passport_detail`
+- `doc_select.title`
+- `generic.errors.no_face.instruction`
+- `generic.errors.no_face.message`
+- `get_link.subtitle_url`
+- `outro.body`
+- `outro.title`
+- `permission.body_cam`
+- `selfie_capture.alert.timeout.detail`
+- `selfie_capture.title`
+- `selfie_confirmation.subtitle`
+- `selfie_confirmation.title`
+- `selfie_intro.subtitle`
+- `upload_guide.button_primary`
+- `video_capture.body`
+- `video_capture.body_record`
+- `video_confirmation.title`
+- `video_intro.button_primary`
+- `video_intro.list_item_actions`
+- `video_intro.list_item_speak`
+
+Only the **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+- `country_select.search.input_placeholder`
 
 ### Removed strings
 
@@ -53,12 +94,14 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `video_capture.body_stop`
 - `video_capture.button_stop_accessibility`
 - `video_capture.header.challenge_turn_template`
+- `welcome.description_p_1`
+- `welcome.description_p_2`
 
 ## `6.8.0` -> `6.9.0`
 
-### Added strings
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
 
-The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has been added:
+### Added strings
 
 - `auth_accessibility.back_button`
 - `auth_cam_encrypt.loader`
@@ -137,8 +180,6 @@ The **English** copy for the following string(s) has been added:
 ## `6.5.0` -> `6.6.0`
 
 ### Added strings
-
-The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
 
 The **English** copy for the following string(s) has been added:
 

@@ -64,7 +64,7 @@ type UnknownError = {
   type: typeof API_ERROR_UNKNOWN
 } & ApiErrorPayload
 
-export type ApiParsedError = {
+export type ParsedError = {
   response: {
     error?:
       | AuthorizationError
@@ -75,7 +75,7 @@ export type ApiParsedError = {
     type?: string
     message?: string
   }
-  status: number
+  status?: number
 }
 
 /* Responses */
@@ -90,39 +90,10 @@ export type UploadFileResponse = {
   download_href: string
 }
 
-type ImageQualityBreakdown = {
-  max: number
-  min: number
-  score: number
-  threshold: number
-}
-
-type ImageCutoffBreakdown = {
-  has_cutoff: boolean
-} & ImageQualityBreakdown
-
-type ImageGlareBreakdown = {
-  has_glare: boolean
-} & ImageQualityBreakdown
-
-type ImageBlurBreakdown = {
-  has_blur: boolean
-} & ImageQualityBreakdown
-
 type ImageQualityWarnings = {
   detect_cutoff?: { valid: boolean }
   detect_glare?: { valid: boolean }
   detect_blur?: { valid: boolean }
-  image_quality: {
-    quality: string
-    breakdown: {
-      cutoff?: ImageCutoffBreakdown
-      glare?: ImageGlareBreakdown
-      blur?: ImageBlurBreakdown
-      has_document: boolean
-    }
-    image_quality_uuid: string
-  }
 }
 
 export type DocumentImageResponse = {
@@ -130,7 +101,7 @@ export type DocumentImageResponse = {
   type: DocumentTypes | PoaTypes
   side: DocumentSides
   issuing_country: string | null | undefined
-  sdk_warnings: ImageQualityWarnings
+  sdk_warnings?: ImageQualityWarnings
 } & UploadFileResponse
 
 const CHALLENGE_RECITE = 'recite'
@@ -209,4 +180,4 @@ export type CreateV4DocumentResponse = {
 /* Callbacks */
 
 export type SuccessCallback<T> = (response: T) => void
-export type ErrorCallback = (error: ApiParsedError) => void
+export type ErrorCallback = (error: ParsedError) => void
