@@ -19,6 +19,7 @@ const MobileUploadArea = ({
   isPoA,
   translate,
   isUploading,
+  captureType,
 }) => (
   <div className={style.uploadArea}>
     {children}
@@ -36,7 +37,7 @@ const MobileUploadArea = ({
         })}
         onChange={onFileSelected}
         accept="image/*"
-        capture
+        capture={captureType}
       >
         <Button
           variant={isPoA ? 'secondary' : 'primary'}
@@ -153,7 +154,7 @@ const PassportUploadIntro = ({
       >
         <button
           type="button"
-          className={theme.link}
+          className={classNames(theme.link, style.buttonLinkUploadCopy)}
           data-onfido-qa="uploaderButtonLink"
           onClick={nextStep}
         >
@@ -184,6 +185,7 @@ const UploadArea = (props) => {
     error,
     handleFileSelected,
     isUploading,
+    captureType,
   } = props
   const isPoA = uploadType === 'proof_of_address'
 
@@ -200,7 +202,7 @@ const UploadArea = (props) => {
           {error && <UploadError {...{ error, translate }} />}
           <button
             type="button"
-            className={theme.link}
+            className={classNames(theme.link, style.buttonLinkUploadCopy)}
             data-onfido-qa="uploaderButtonLink"
             disabled={isUploading}
           >
@@ -215,7 +217,7 @@ const UploadArea = (props) => {
     <MobileUploadArea
       onFileSelected={handleFileSelected}
       translate={translate}
-      {...{ isPoA, isUploading }}
+      {...{ isPoA, isUploading, captureType }}
     >
       <div className={style.instructions}>
         <div
@@ -272,6 +274,7 @@ class Uploader extends Component {
     } = this.props
     const isPassportUpload =
       uploadType !== 'face' && documentType === 'passport'
+    const captureType = uploadType === 'face' ? 'user' : 'environment'
     return (
       <div className={classNames(theme.fullHeightContainer, style.container)}>
         <PageTitle
@@ -290,6 +293,7 @@ class Uploader extends Component {
           ) : (
             <UploadArea
               {...this.props}
+              captureType={captureType}
               error={this.state.error}
               handleFileSelected={this.handleFileSelected}
               isUploading={this.state.isUploading}
