@@ -57,6 +57,9 @@ export type QueryParams = {
   decoupleResponse?: DecoupleResponseOptions
   photoCaptureFallback?: StringifiedBoolean
   showUserAnalyticsEvents?: StringifiedBoolean
+  excludeSmsCrossDeviceOption?: StringifiedBoolean
+  singleCrossDeviceOption?: StringifiedBoolean
+  invalidCrossDeviceAlternativeMethods?: StringifiedBoolean
 }
 
 export type CheckData = {
@@ -280,6 +283,17 @@ export const getInitSdkOptions = (): SdkOptions => {
     }
   }
 
+  let visibleCrossDeviceMethods
+  if (queryParamToValueString.excludeSmsCrossDeviceOption === 'true') {
+    visibleCrossDeviceMethods = ['copy_link', 'qr_code']
+  }
+  if (queryParamToValueString.singleCrossDeviceOption === 'true') {
+    visibleCrossDeviceMethods = ['sms']
+  }
+  if (queryParamToValueString.invalidCrossDeviceAlternativeMethods === 'true') {
+    visibleCrossDeviceMethods = ['copy', 'qrCode', 'sms']
+  }
+
   const customUI =
     queryParamToValueString.customisedUI === 'true' ? customUIConfig : undefined
 
@@ -304,6 +318,7 @@ export const getInitSdkOptions = (): SdkOptions => {
     },
     customUI: customUI as UICustomizationOptions,
     ...smsNumberCountryCode,
+    _crossDeviceLinkMethods: visibleCrossDeviceMethods,
   }
 }
 
@@ -402,6 +417,15 @@ export const commonSteps: Record<string, Array<StepTypes | StepConfig>> = {
     },
     'complete',
   ],
+}
+
+export const commonVisibleCrossDeviceLinkOptions: Record<string, string[]> = {
+  smsOnly: ['sms'],
+  copyLinkOnly: ['copy_link'],
+  qrCodeOnly: ['qr_code'],
+  excludeSms: ['copy_link', 'qr_code'],
+  reorderOptions: ['sms', 'copy_link', 'qr_code'],
+  invalidOptions: ['copy', 'qrCode', 'sms'],
 }
 
 export const commonLanguages: Record<
